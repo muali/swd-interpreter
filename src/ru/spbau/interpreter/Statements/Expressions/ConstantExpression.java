@@ -1,3 +1,9 @@
+package ru.spbau.interpreter.Statements.Expressions;
+
+import ru.spbau.interpreter.Context;
+import ru.spbau.interpreter.ParseException;
+import ru.spbau.interpreter.analyze.InterpreterVisitor;
+
 public class ConstantExpression extends Expression {
   private final int value;
 
@@ -6,7 +12,7 @@ public class ConstantExpression extends Expression {
   }
 
   @Override
-  int evaluate() {
+  public int evaluate(Context context) {
     return value;
   }
 
@@ -16,5 +22,11 @@ public class ConstantExpression extends Expression {
     } catch (NumberFormatException e) {
       throw new ParseException("Wrong number format for: " + s, e);
     }
+  }
+
+  @Override
+  public void visit(InterpreterVisitor visitor) {
+    super.visit(visitor);
+    visitor.visitConstantExpression(this);
   }
 }

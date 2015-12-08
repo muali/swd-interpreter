@@ -7,7 +7,7 @@ Based on existing codebase you will:
 
        (2 + 1) + (12)
 
-Expression grammar is defined the following way:
+ru.spbau.interpreter.Statements.Expressions.Expression grammar is defined the following way:
 
         Expr -> Const | (Expr) | Expr + Expr
         Const -> \d+

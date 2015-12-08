@@ -1,6 +1,9 @@
-import java.util.Map;
+package ru.spbau.interpreter.Statements.Expressions;
 
-public abstract class Expression {
+import ru.spbau.interpreter.Statements.Statement;
+import ru.spbau.interpreter.analyze.InterpreterVisitor;
+
+public abstract class Expression extends Statement {
   public static Expression of(String s) {
     s = s.trim();
     int outerPlus = findOuterPlus(s);
@@ -40,9 +43,10 @@ public abstract class Expression {
     return -1;
   }
 
-  abstract int evaluate();
-
-  public int evaluate(Map<String, Integer> environment) {
-     return evaluate();
+  @Override
+  public void visit(InterpreterVisitor visitor) {
+    super.visit(visitor);
+    visitor.visitExpression(this);
   }
+
 }
