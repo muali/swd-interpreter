@@ -28,6 +28,10 @@ public class AdditionCounter implements InterpreterVisitor {
     System.out.println(counter.additionCount);
   }
 
+  public int getAdditionCount() {
+    return additionCount;
+  }
+
   @Override
   public void visitSumExpression(SumExpression expression) {
     additionCount++;

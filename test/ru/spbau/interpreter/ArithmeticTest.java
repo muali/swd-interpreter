@@ -1,3 +1,5 @@
+package ru.spbau.interpreter;
+
 import org.junit.Test;
 import ru.spbau.interpreter.Context;
 import ru.spbau.interpreter.Statements.Expressions.Expression;

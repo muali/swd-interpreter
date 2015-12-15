@@ -17,7 +17,7 @@ public abstract class Expression extends Statement {
       return Expression.of(s.substring(1, s.length() - 1));
     }
 
-    if (Character.isDigit(s.charAt(0))) {
+    if (s.length() > 0 && Character.isDigit(s.charAt(0))) {
       return ConstantExpression.of(s);
     }
 

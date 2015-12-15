@@ -1,6 +1,7 @@
 package ru.spbau.interpreter.Statements.Expressions;
 
 import ru.spbau.interpreter.Context;
+import ru.spbau.interpreter.EvaluationException;
 import ru.spbau.interpreter.ParseException;
 import ru.spbau.interpreter.analyze.InterpreterVisitor;
 
@@ -24,7 +25,7 @@ public class VariableExpression extends Expression {
     if (context.isDeclared(name)) {
       return context.evaluate(name);
     }
-    return 0;
+    throw new EvaluationException("Undeclared variable: " + name);
   }
 
   @Override
